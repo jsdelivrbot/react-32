@@ -34,11 +34,21 @@ class App extends Component {
   }
 
   render() {
+    const style = {
+      backgroundColor: 'lightBlue',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer'
+    };
+
     return (
       <div className="App">
         <h1>Hi I'm a React app</h1>
-        {/* This way of passing reference to method is less efficient than the bind way further down */}
-        <button onClick={() => this.switchNameHandler('Maximilian!!')}>Switch Name</button>
+        {/* This way of passing reference to method is less efficient than the bind further down */}
+        <button 
+          style={style}
+          onClick={() => this.switchNameHandler('Maximilian!!')}>Switch Name</button>
         <Person
           name={this.state.persons[0].name}
           age={this.state.persons[0].age} />
