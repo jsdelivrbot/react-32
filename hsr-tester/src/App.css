@@ -1,19 +1,78 @@
-.App {
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,700');
+
+/* Core Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Oswald', sans-serif;
+  /* make it look decent enough */
+  background: #232323;
   font-size: 10px;
 }
 
+body {
+  display: grid;
+  
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  padding: 1em 0;
+}
+
+p {
+  margin: 0;
+  padding: 1em 0;
+}
+
+/* Header */
 .header {
   background: #111;
   color: #eee;
   padding: 1rem;
+  display: grid;
+  grid-template-columns: .1fr 1fr 2fr;
 }
 
 .logo {
-  width: 10vw;
+  width: 4vw;
+  display: block;
+  padding: 1rem;
+  margin: 0;
+  grid-column: 1;
 }
 
 .logo-title {
-  font-size: 2rem;
-  display: inline;
-  padding-left: 1rem;
+  font-size: 2vw;
+  padding: 1.5rem 1rem;
+  grid-column: 2;
+  text-transform: uppercase;
 }
+
+.header-list {
+  grid-column: 3;
+}
+ul { 
+  list-style-type: none; 
+  float:right;
+  margin-right: 16px;
+  padding-top: 1rem;
+}
+ul li {
+  display: inline; 
+}
+ul li a { 
+  color: #fff; 
+  padding: 15px;
+  font-size: 1.5vw; 
+}
+
+/* Main Content */
+
+/* Footer */
