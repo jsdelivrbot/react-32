@@ -5,23 +5,34 @@ import Person from './Person/Person';
 class App extends Component {
   state = {
     persons: [
-      { name: 'Max', age: 28 },
-      { name: 'Manu', age: 29 },
-      { name: 'Stephanie', age: 26 }
+      { id: 'v12' ,name: 'Max', age: 28 },
+      { id: 'a1234' ,name: 'Manu', age: 29 },
+      { id: 's123456' ,name: 'Stephanie', age: 26 }
     ],
     otherState: 'some other vallue',
     showPersons: false
   }
 
-  nameChangedHandler = (event) => {
+  nameChangedHandler = (event, id) => {
+    const personIndex = this.state.persons.findIndex(p => {
+      return p.id === id;
+    });
+
+    const person =  {
+      // spread operator to not mutate original state
+      ...this.state.persons[personIndex]
+    };
+    // An alternative way of doing this, which is less efficient: 
+    // const person = Object.assign({}, this.state.persons[personIndex])
+
+    person.name = event.target.value;
+
+    const persons = [...this.state.persons];
+    persons[personIndex] = person;
+
+
     // Inline styling, not good for standard styling, only used for one object
-    this.setState({
-      persons: [
-        { name: 'Max', age: 28 },
-        { name: event.target.value, age: 29 },
-        { name: 'Stephanie', age: 26 }
-      ]
-    })
+    this.setState({ persons: persons })
   }
 
   togglePersonsHandler = () => {
@@ -30,8 +41,8 @@ class App extends Component {
   }
 
   deletePersonHandler = (personIndex) => {
-    const persons = this.state.persons.slice();
-    // alternative way of copying an array is, which is more modern: const persons = [...this.state.persons];
+    // alternative way of copying an array is, though it is less modern: const persons = this.state.persons.slice();
+    const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
     this.setState({persons: persons});
   }
@@ -54,7 +65,9 @@ class App extends Component {
             return <Person 
               click={() => this.deletePersonHandler(index)}
               name={person.name} 
-              age={person.age} />
+              age={person.age} 
+              key= {person.id}
+              changed={(event) => this.nameChangedHandler(event, person.id)} />
           })}
         </div>
       )
