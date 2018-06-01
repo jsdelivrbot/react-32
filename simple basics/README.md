@@ -1,1 +1,1 @@
-# Simple example that shows the basics of React
+Example that shows the basics of React
