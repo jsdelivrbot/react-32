@@ -1,5 +1,7 @@
-import React from 'react';
+import React from 'react'
 import { Switch, Route } from 'react-router-dom'
+import FullRoster from './FullRoster'
+import Player from './Player'
 
 const Roster = () => (
   <Switch>
