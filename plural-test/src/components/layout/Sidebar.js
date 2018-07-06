@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
-    <div>
-      <h1>test3</h1>
+    <div className={'leftNavContainer'}>
+      <Link to='/' className='navLink'>Home</Link>
     </div>
   );
 }
