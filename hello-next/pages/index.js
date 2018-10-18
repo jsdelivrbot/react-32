@@ -1,11 +1,13 @@
-import React from 'react';
+import React from "react";
+import Link from "next/link";
 
-const index = () => {
-  return (
-    <div>
-      <p>Hello Next.js</p>
-    </div>
-  );
-};
+const Index = () => (
+  <div>
+    <Link href="/about" style={{ fontSize: 20 }}>
+      <a>About Page</a>
+    </Link>
+    <p>Hello Next.js</p>
+  </div>
+);
 
-export default index;
+export default Index;
